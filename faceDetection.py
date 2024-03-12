@@ -1,13 +1,13 @@
 import requests
-from PIL import Image
+from http.client import responses
 from io import BytesIO
 
 # azure face api key and endpoint goes here 
-azure_face_api_key = "API KEY"
-azure_face_api_endpoint = "API ENDPOINT"
+azure_face_api_key = "b1fda5c17aa547c5a13a79d11b75c4f6"
+azure_face_api_endpoint = "https://smartringerapi.cognitiveservices.azure.com/T"
 
 # url to image
-iamge_url = "IMAGE URL"
+iamge_url = "IMAGE URL" # should send to SQL database
 
 # azure face api endpoint
 face_api_url = f"{azure_face_api_endpoint}/face/v1.0/detect"
@@ -48,4 +48,4 @@ if responce.status_code == 200:
         print(f"Emotion: {face_attributes['emotion']}")
 
 else:
-    print(f"Error: {response.status_code}, {response.text}")
+    print(f"Error: {responses.status_code}, {responses.text}")
